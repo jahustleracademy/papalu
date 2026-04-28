@@ -2995,7 +2995,6 @@ body.home #scb-wrapper {
 	--ing-onion-scale: 1;
 	position: relative;
 	isolation: isolate;
-	margin-top: -1px;
 	height: auto !important;
 	min-height: 0 !important;
 	overflow-y: visible !important;
@@ -5192,7 +5191,7 @@ window.addEventListener('load', function () {
 	const updateMeasurements = function () {
 		const rect = hero.getBoundingClientRect();
 		const stickyTop = sticky ? parseFloat(window.getComputedStyle(sticky).top) || 0 : 0;
-		heroStart = window.scrollY + rect.top - stickyTop;
+		heroStart = Math.max(0, window.scrollY + rect.top - stickyTop);
 		const trackHeight = track ? track.offsetHeight : 1;
 		const stickyHeight = sticky ? sticky.offsetHeight : window.innerHeight;
 		heroTravel = Math.max(1, trackHeight - stickyHeight);
