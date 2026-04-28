@@ -3684,14 +3684,12 @@ body.home #scb-wrapper {
 	}
 }
 
-body.home .site-content > .ast-container {
-	max-width: 100% !important;
-	padding-inline: 0 !important;
-}
+
 
 .pl-ref-shell {
 	position: relative;
-	max-width: 100%;
+	width: 100%;
+	max-width: 1240px;
 	padding: 0 clamp(1.25rem, 5vw, 4rem);
 	margin: 0 auto;
 }
@@ -3700,6 +3698,13 @@ body.home .site-content > .ast-container {
 	position: relative;
 	padding: clamp(4.8rem, 8vw, 7.5rem) 0;
 	overflow-x: clip;
+}
+
+.home .entry-content[data-ast-blocks-layout] > .pl-flow {
+	max-width: none;
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
 }
 
 /* Section Backgrounds & Colors */
