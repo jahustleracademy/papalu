@@ -1,0 +1,8 @@
+http://127.0.0.1:8090/
+http://127.0.0.1:8090/about-us/
+http://127.0.0.1:8090/menu/
+http://127.0.0.1:8090/menu-dark/
+http://127.0.0.1:8090/testimonial/
+http://127.0.0.1:8090/contact/
+http://127.0.0.1:8090/beispiel-seite/
+http://127.0.0.1:8090/hallo-welt/

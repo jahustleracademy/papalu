@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+*.err.log
+.server-*.log
+.server-*.err.log
+
+# Local backups and exports
+*.backup-*
+*_code_only.zip
+
+# Local environments
+.venv/

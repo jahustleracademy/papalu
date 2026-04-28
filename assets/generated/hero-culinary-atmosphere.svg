@@ -1,0 +1,55 @@
+<svg width="1600" height="1800" viewBox="0 0 1600 1800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="spot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 300) rotate(90) scale(560 760)">
+      <stop stop-color="#F7F1E4" stop-opacity="0.62"/>
+      <stop offset="0.58" stop-color="#F7F1E4" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#F7F1E4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="leftGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 520) rotate(17) scale(320 460)">
+      <stop stop-color="#69DCC0" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#69DCC0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rightGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1320 700) rotate(-14) scale(250 360)">
+      <stop stop-color="#E7333F" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#E7333F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FFF8EA" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#FFF8EA" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blur64" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="42"/>
+    </filter>
+    <filter id="blur24" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1800" fill="url(#spot)"/>
+  <ellipse cx="240" cy="520" rx="300" ry="430" fill="url(#leftGlow)"/>
+  <ellipse cx="1320" cy="700" rx="230" ry="330" fill="url(#rightGlow)"/>
+
+  <g opacity="0.56" filter="url(#blur24)">
+    <path d="M168 286C272 328 338 424 354 552" stroke="#FFF7EA" stroke-opacity="0.2" stroke-width="12" stroke-linecap="round"/>
+    <path d="M1304 350C1218 422 1176 512 1168 626" stroke="#FFF7EA" stroke-opacity="0.16" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.4" filter="url(#blur64)">
+    <path d="M244 638C336 736 378 858 356 1010" stroke="#F7F1E4" stroke-opacity="0.28" stroke-width="92" stroke-linecap="round"/>
+    <path d="M1312 770C1228 858 1192 970 1202 1104" stroke="#F7F1E4" stroke-opacity="0.22" stroke-width="84" stroke-linecap="round"/>
+    <path d="M724 1160C782 1094 864 1054 964 1036" stroke="#69DCC0" stroke-opacity="0.22" stroke-width="72" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.5">
+    <path d="M708 0L950 0L1090 680L566 680L708 0Z" fill="url(#beam)"/>
+  </g>
+
+  <g opacity="0.78">
+    <ellipse cx="304" cy="1418" rx="216" ry="56" fill="#0D241F" fill-opacity="0.42"/>
+    <ellipse cx="1296" cy="1452" rx="196" ry="52" fill="#0D241F" fill-opacity="0.34"/>
+  </g>
+
+  <g opacity="0.54">
+    <rect x="0" y="1360" width="1600" height="440" fill="url(#beam)" transform="matrix(1 0 0 -1 0 1800)"/>
+  </g>
+</svg>
