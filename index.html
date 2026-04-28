@@ -2996,6 +2996,8 @@ body.home #scb-wrapper {
 	position: relative;
 	isolation: isolate;
 	margin-top: -1px;
+	height: auto !important;
+	min-height: 0 !important;
 	overflow-y: visible !important;
 	overflow-x: clip;
 	z-index: 100;
@@ -3008,7 +3010,7 @@ body.home #scb-wrapper {
 
 .papalu-hero__track {
 	position: relative;
-	height: 198svh;
+	height: 100svh;
 	overflow: visible !important;
 }
 
@@ -3202,7 +3204,7 @@ body.home #scb-wrapper {
 .papalu-hero__visual {
 	z-index: 2;
 	pointer-events: none;
-	overflow: hidden;
+	overflow: visible !important;
 }
 
 .papalu-hero__word {
@@ -3280,7 +3282,7 @@ body.home #scb-wrapper {
 	opacity: calc(0.24 + (var(--hero-wrap) * 0.22) + (var(--hero-swap) * 0.24) + (var(--hero-burger) * 0.12) - (var(--hero-exit) * 0.34));
 	transform: translate3d(
 		calc((var(--hero-wrap) * 34vw) + (var(--hero-swap) * 30vw) + (var(--hero-burger) * 16vw) + (var(--hero-exit) * 18vw)),
-		calc((var(--hero-start) * 14vh) - (var(--hero-wrap) * 24vh) - (var(--hero-swap) * 18vh) - (var(--hero-burger) * 10vh) - (var(--hero-exit) * 8vh)),
+		calc((var(--hero-start) * 14vh) - (var(--hero-wrap) * 24vh) - (var(--hero-swap) * 18vh) - (var(--hero-burger) * 10vh) + (var(--hero-exit) * 45vh)),
 		0
 	) rotate(calc(-22deg + (var(--hero-wrap) * 10deg) + (var(--hero-swap) * 16deg) + (var(--hero-burger) * 10deg))) scale(calc(var(--ing-lettuce-scale) * (0.98 + (var(--hero-wrap) * 0.14) + (var(--hero-swap) * 0.1) + (var(--hero-burger) * 0.04))));
 }
@@ -3292,7 +3294,7 @@ body.home #scb-wrapper {
 	opacity: calc(0.2 + (var(--hero-wrap) * 0.16) + (var(--hero-swap) * 0.24) + (var(--hero-burger) * 0.2) - (var(--hero-exit) * 0.42));
 	transform: translate3d(
 		calc((var(--hero-wrap) * -18vw) + (var(--hero-swap) * -30vw) + (var(--hero-burger) * -24vw) + (var(--hero-exit) * -20vw)),
-		calc((var(--hero-start) * -14vh) + (var(--hero-wrap) * 16vh) + (var(--hero-swap) * 24vh) + (var(--hero-burger) * 20vh) + (var(--hero-exit) * 22vh)),
+		calc((var(--hero-start) * -14vh) + (var(--hero-wrap) * 16vh) + (var(--hero-swap) * 24vh) + (var(--hero-burger) * 20vh) + (var(--hero-exit) * 55vh)),
 		0
 	) rotate(calc(24deg - (var(--hero-wrap) * 8deg) - (var(--hero-swap) * 18deg) - (var(--hero-burger) * 12deg))) scale(calc(var(--ing-tomato-scale) * (0.96 + (var(--hero-wrap) * 0.08) + (var(--hero-swap) * 0.14) + (var(--hero-burger) * 0.08))));
 }
