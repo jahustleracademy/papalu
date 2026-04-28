@@ -8,6 +8,7 @@
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link href='https://fonts.googleapis.com' rel='preconnect' />
 <link href='https://fonts.gstatic.com' crossorigin='anonymous' rel='preconnect' />
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&amp;display=swap" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="/feed/" />
 <link rel="alternate" type="application/rss+xml" title=" &raquo; Kommentar-Feed" href="/comments/feed/" />
 <!-- SureRank Meta Data -->
@@ -2386,68 +2387,205 @@ body.home.pl-hero-active #masthead {
 }
 
 
-/* Force Harmonized Review Section */
-.wp-block-uagb-container.uagb-block-1cca6035 {
-	background: #f6f2ea !important;
-	background-image: none !important;
-	padding-top: 72px !important;
-	padding-bottom: 72px !important;
+/* Post-hero premium editorial system */
+:root {
+	--pl-surface-0: #f2ecdf;
+	--pl-surface-1: #f7f3ea;
+	--pl-surface-2: #fffdf8;
+	--pl-surface-3: #123933;
+	--pl-ink-strong: #183732;
+	--pl-ink-muted: #355852;
+	--pl-ink-on-dark: #f6f0e4;
+	--pl-accent: #2c6f62;
+	--pl-outline-soft: rgba(23, 54, 48, 0.14);
+	--pl-shadow-soft: 0 18px 34px rgba(8, 26, 23, 0.11);
+	--pl-shadow-deep: 0 24px 44px rgba(6, 22, 20, 0.34);
+	--pl-space-y: clamp(5rem, 8vw, 7.4rem);
+	--pl-shell-w: min(1160px, calc(100% - 2rem));
 }
 
-.wp-block-uagb-container.uagb-block-1cca6035::before {
-	content: none !important;
-	background: none !important;
-	opacity: 0 !important;
+.pl-flow-section {
+	position: relative;
+	isolation: isolate;
+	overflow: visible;
+	padding: var(--pl-space-y) 0;
+}
+
+.pl-flow-section > .uagb-container-inner-blocks-wrap,
+.pl-flow-section > div > .uagb-container-inner-blocks-wrap {
+	position: relative;
+	z-index: 3;
+	max-width: var(--pl-shell-w) !important;
+	margin-inline: auto;
+}
+
+.pl-flow-section + .pl-flow-section {
+	margin-top: clamp(-2.2rem, -3.5vw, -1.1rem);
+}
+
+.pl-flow-section + .pl-flow-section::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: clamp(-4.8rem, -6vw, -3rem);
+	height: clamp(5.6rem, 8vw, 7.2rem);
+	z-index: 2;
+	pointer-events: none;
+	background:
+		radial-gradient(92% 88% at 14% 100%, rgba(247, 243, 234, 0.98) 0 34%, transparent 60%),
+		radial-gradient(84% 82% at 52% 100%, rgba(247, 243, 234, 0.98) 0 36%, transparent 62%),
+		radial-gradient(92% 88% at 88% 100%, rgba(247, 243, 234, 0.98) 0 34%, transparent 60%);
+	-webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 100%);
+	mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.82) 18%, #000 100%);
+}
+
+.pl-flow-section h2,
+.pl-flow-section h5,
+.pl-flow-section h6,
+.pl-flow-section .uagb-ifb-title,
+.pl-flow-section .uagb-ifb-title-prefix {
+	color: var(--pl-ink-strong) !important;
+	text-shadow: none !important;
+}
+
+.pl-flow-section p,
+.pl-flow-section .uagb-ifb-desc,
+.pl-flow-section .uagb-rm__desc,
+.pl-flow-section .uagb-rm__price,
+.pl-flow-section .uagb-rm__title {
+	color: var(--pl-ink-muted) !important;
+	text-shadow: none !important;
+}
+
+.pl-flow-section--intro {
+	background:
+		radial-gradient(circle at 10% 12%, rgba(100, 169, 143, 0.18), transparent 24%),
+		linear-gradient(180deg, var(--pl-surface-1) 0%, var(--pl-surface-0) 100%);
+}
+
+.pl-flow-section--intro .uagb-block-30a9ba27,
+.pl-flow-section--intro .uagb-block-da6f683d {
+	background: var(--pl-surface-2);
+	border: 1px solid var(--pl-outline-soft);
+	border-radius: 1.35rem;
+	box-shadow: var(--pl-shadow-soft);
+	overflow: hidden;
+}
+
+.pl-flow-section--intro .uagb-infobox-margin-wrapper {
+	padding: clamp(1.2rem, 2.2vw, 1.8rem);
+}
+
+.pl-flow-section--menu {
+	background:
+		radial-gradient(circle at 84% 10%, rgba(123, 173, 144, 0.1), transparent 24%),
+		linear-gradient(180deg, #f6f1e8 0%, #f1eade 100%);
+}
+
+.pl-flow-section--menu .uagb-block-b3aa6e56 {
+	background: rgba(255, 252, 246, 0.82);
+	border: 1px solid var(--pl-outline-soft);
+	border-radius: 1.4rem;
+	padding: clamp(1.1rem, 2.5vw, 1.8rem);
+	box-shadow: var(--pl-shadow-soft);
+}
+
+.pl-flow-section--menu .uagb-rm__content {
+	border-bottom: 1px solid rgba(25, 61, 54, 0.18);
+	padding-bottom: 0.9rem;
+}
+
+.pl-flow-section--menu .uagb-rm__title,
+.pl-flow-section--menu .uagb-rm__price {
+	color: var(--pl-ink-strong) !important;
+}
+
+.pl-flow-section--story {
+	background:
+		radial-gradient(circle at 17% 86%, rgba(101, 170, 144, 0.1), transparent 22%),
+		linear-gradient(180deg, #f5eee2 0%, #ece4d5 100%);
+}
+
+.pl-flow-section--story .uagb-block-c86ab46e,
+.pl-flow-section--story .uagb-block-78c07347 {
+	background: rgba(255, 251, 243, 0.9);
+	border: 1px solid var(--pl-outline-soft);
+	border-radius: 1.25rem;
+	padding: clamp(1rem, 2vw, 1.5rem);
+	box-shadow: 0 14px 28px rgba(11, 32, 28, 0.08);
+}
+
+.pl-flow-section--menu-copy {
+	background:
+		linear-gradient(180deg, #ece4d5 0%, #e4dac8 100%);
+	padding-top: clamp(4rem, 6vw, 5.6rem);
+	padding-bottom: clamp(3rem, 4vw, 3.8rem);
+}
+
+.pl-flow-section--gallery {
+	background:
+		radial-gradient(circle at 83% 16%, rgba(99, 189, 149, 0.24), transparent 24%),
+		linear-gradient(180deg, #1d4a42 0%, #123732 100%);
+	padding-top: clamp(6.1rem, 9vw, 8rem);
+	padding-bottom: clamp(6.2rem, 9vw, 8.2rem);
+}
+
+.pl-flow-section--gallery::after {
+	content: "";
+	position: absolute;
+	top: clamp(-4.9rem, -8vw, -2.8rem);
+	left: 50%;
+	width: clamp(190px, 24vw, 330px);
+	aspect-ratio: 1 / 1;
+	transform: translateX(-50%) rotate(-9deg);
+	background: url("/assets/ai_images/burger.png") center / contain no-repeat;
+	filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.34));
+	pointer-events: none;
+	z-index: 4;
+}
+
+.pl-flow-section--gallery .spectra-image-gallery__media {
+	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	box-shadow: var(--pl-shadow-deep);
+	overflow: hidden;
+}
+
+.pl-flow-section--reviews {
+	background:
+		radial-gradient(circle at 16% 12%, rgba(121, 173, 145, 0.1), transparent 24%),
+		linear-gradient(180deg, #f6f0e5 0%, #f3ecdf 100%);
+}
+
+.wp-block-uagb-container.uagb-block-1cca6035 {
+	background: transparent !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
 }
 
 .wp-block-uagb-container.uagb-is-root-container.alignfull.uagb-block-1cca6035 > .uagb-container-inner-blocks-wrap {
-	--inner-content-custom-width: min(100%, 1200px) !important;
+	--inner-content-custom-width: var(--pl-shell-w) !important;
 	max-width: var(--inner-content-custom-width) !important;
-	row-gap: 30px !important;
+	row-gap: 2rem !important;
 }
 
-.uagb-block-be3daac0 .uagb-ifb-content,
-.uagb-block-be3daac0 .uagb-ifb-title-wrap {
+.uagb-block-be3daac0 .uagb-ifb-title-wrap,
+.uagb-block-be3daac0 .uagb-ifb-content {
 	text-align: center !important;
-}
-
-.uagb-block-be3daac0 {
-	width: 100% !important;
-	max-width: 100% !important;
-}
-
-.uagb-block-be3daac0 .uagb-infobox-margin-wrapper,
-.uagb-block-be3daac0 .uagb-ifb-content,
-.uagb-block-be3daac0 .uagb-ifb-title-wrap {
-	width: 100% !important;
-}
-
-.uagb-block-be3daac0 .uagb-ifb-title-wrap {
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
-}
-
-.uagb-block-be3daac0 .uagb-ifb-title-prefix {
-	color: #6b7280 !important;
-	letter-spacing: 0.12em !important;
-	margin-bottom: 10px !important;
 }
 
 .uagb-block-be3daac0.wp-block-uagb-info-box .uagb-ifb-title {
-	color: #1f2937 !important;
-	margin-bottom: 10px !important;
-	line-height: 1.2 !important;
-	text-align: center !important;
+	color: var(--pl-ink-strong) !important;
+	line-height: 1.22 !important;
 }
 
 .uagb-block-be3daac0.wp-block-uagb-info-box .uagb-ifb-desc {
-	color: #4b5563 !important;
-	margin: 0 !important;
+	color: var(--pl-ink-muted) !important;
 }
 
 .uagb-block-89e61ad5 .uagb-testimonial__wrap {
-	padding: 14px !important;
+	padding: 12px !important;
 }
 
 .uagb-block-89e61ad5 .uagb-tm__overlay {
@@ -2455,77 +2593,95 @@ body.home.pl-hero-active #masthead {
 }
 
 .uagb-block-89e61ad5 .uagb-testimonial__wrap .uagb-tm__content {
-	background: #ffffff !important;
-	border: 1px solid #e8dfd3 !important;
-	border-radius: 16px !important;
-	box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08) !important;
-	padding: 0 !important;
+	background: #fffefb !important;
+	border: 1px solid var(--pl-outline-soft) !important;
+	border-radius: 1.1rem !important;
+	box-shadow: 0 16px 28px rgba(12, 32, 28, 0.08) !important;
 	text-align: left !important;
 }
 
 .uagb-block-89e61ad5 .uagb-tm__text-wrap {
-	padding: 24px !important;
-}
-
-.uagb-block-89e61ad5 .pl-review-source {
-	margin-bottom: 14px !important;
-}
-
-.uagb-block-89e61ad5 .pl-google-badge {
-	background: #f8fafc !important;
-	border: 1px solid #d1d5db !important;
+	padding: 22px !important;
 }
 
 .uagb-block-89e61ad5 .uagb-tm__company {
-	color: #6b7280 !important;
-}
-
-.uagb-block-89e61ad5 .pl-stars {
-	color: #f59e0b !important;
+	color: #60756f !important;
 }
 
 .uagb-block-89e61ad5 .uagb-tm__desc {
-	margin: 0 0 18px 0 !important;
-	color: #1f2937 !important;
-	font-size: 1rem !important;
-	line-height: 1.7 !important;
-	text-align: left !important;
-}
-
-.uagb-block-89e61ad5 .uagb-tm__meta-inner {
-	display: block !important;
-}
-
-.uagb-block-89e61ad5 .uagb-testimonial-details {
-	border-top: 1px solid #ece7de !important;
-	padding-top: 14px !important;
+	color: var(--pl-ink-strong) !important;
+	line-height: 1.66 !important;
 }
 
 .uagb-block-89e61ad5 .uagb-tm__author-name {
-	display: block !important;
-	margin: 0 !important;
-	font-size: 1.02rem !important;
+	color: #173b35 !important;
 	font-weight: 700 !important;
-	color: #111827 !important;
-	text-align: left !important;
+}
+
+.pl-flow-section--cta {
+	background:
+		radial-gradient(circle at 14% 14%, rgba(98, 189, 150, 0.18), transparent 26%),
+		linear-gradient(180deg, #1a463f 0%, #123530 100%);
+	padding-top: clamp(6.4rem, 10vw, 8.4rem);
+	padding-bottom: clamp(6rem, 9vw, 8rem);
+}
+
+.pl-flow-section--cta::after {
+	content: "";
+	position: absolute;
+	top: clamp(-4.6rem, -7vw, -2.8rem);
+	right: clamp(5%, 8vw, 14%);
+	width: clamp(150px, 21vw, 250px);
+	aspect-ratio: 1 / 1;
+	transform: rotate(8deg);
+	background: url("/assets/ai_images/wrap.png") center / contain no-repeat;
+	filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.34));
+	pointer-events: none;
+	z-index: 4;
+}
+
+.pl-flow-section--cta .uagb-ifb-title,
+.pl-flow-section--cta .uagb-ifb-title-prefix,
+.pl-flow-section--cta .uagb-ifb-title,
+.pl-flow-section--cta p,
+.pl-flow-section--cta .uagb-ifb-desc {
+	color: var(--pl-ink-on-dark) !important;
+}
+
+.pl-flow-section--cta .uagb-infobox-margin-wrapper,
+.pl-flow-section--cta .uagb-ifb-content {
+	text-align: center;
 }
 
 @media (max-width: 976px) {
-	.wp-block-uagb-container.uagb-block-1cca6035 {
-		padding-top: 52px !important;
-		padding-bottom: 52px !important;
-	}
-
-	.wp-block-uagb-container.uagb-is-root-container.alignfull.uagb-block-1cca6035 > .uagb-container-inner-blocks-wrap {
-		--inner-content-custom-width: min(100%, 96%) !important;
-	}
-
 	.uagb-block-89e61ad5 .uagb-testimonial__wrap {
 		padding: 8px !important;
 	}
 
 	.uagb-block-89e61ad5 .uagb-tm__text-wrap {
-		padding: 20px !important;
+		padding: 18px !important;
+	}
+}
+
+@media (max-width: 921px) {
+	.pl-flow-section {
+		padding: clamp(4rem, 8.2vw, 5.4rem) 0;
+	}
+
+	.pl-flow-section > .uagb-container-inner-blocks-wrap,
+	.pl-flow-section > div > .uagb-container-inner-blocks-wrap {
+		max-width: min(1160px, calc(100% - 1rem)) !important;
+	}
+
+	.pl-flow-section + .pl-flow-section::before {
+		top: clamp(-3.6rem, -7vw, -2rem);
+		height: clamp(4.2rem, 8vw, 5.4rem);
+	}
+
+	.pl-flow-section--gallery::after,
+	.pl-flow-section--cta::after {
+		width: clamp(118px, 30vw, 165px);
+		top: clamp(-3.4rem, -8.4vw, -2rem);
 	}
 }
 
@@ -3533,6 +3689,903 @@ body.home #scb-wrapper {
 	}
 }
 
+.pl-ref-shell {
+	position: relative;
+	max-width: min(1240px, calc(100vw - 2rem));
+	margin: 0 auto;
+}
+
+.pl-flow {
+	position: relative;
+	padding: clamp(4.8rem, 8vw, 7.5rem) 0;
+	overflow: clip;
+}
+
+.pl-flow--light {
+	background:
+		radial-gradient(circle at top left, rgba(56, 178, 145, 0.12), transparent 24%),
+		linear-gradient(180deg, #fffdf7 0%, #f7f1e7 100%);
+	color: #173d37;
+}
+
+.pl-flow--soft {
+	background:
+		radial-gradient(circle at 85% 12%, rgba(31, 79, 72, 0.08), transparent 24%),
+		linear-gradient(180deg, #f5ede2 0%, #fbf7ef 100%);
+	color: #173d37;
+}
+
+.pl-flow--dark {
+	background:
+		radial-gradient(circle at 78% 26%, rgba(56, 178, 145, 0.22), transparent 24%),
+		linear-gradient(180deg, #173d37 0%, #102c28 100%);
+	color: #f7f3ea;
+}
+
+.pl-flow--light::before,
+.pl-flow--soft::before,
+.pl-flow--dark::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -1px;
+	height: 64px;
+	background:
+		radial-gradient(circle at 4% 68%, currentColor 0 22px, transparent 23px),
+		radial-gradient(circle at 14% 42%, currentColor 0 28px, transparent 29px),
+		radial-gradient(circle at 31% 74%, currentColor 0 24px, transparent 25px),
+		radial-gradient(circle at 47% 42%, currentColor 0 30px, transparent 31px),
+		radial-gradient(circle at 64% 75%, currentColor 0 22px, transparent 23px),
+		radial-gradient(circle at 82% 40%, currentColor 0 28px, transparent 29px),
+		radial-gradient(circle at 96% 68%, currentColor 0 22px, transparent 23px);
+	opacity: 0.06;
+	pointer-events: none;
+}
+
+.pl-flow--light::after,
+.pl-flow--soft::after,
+.pl-flow--dark::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 44px;
+	background:
+		radial-gradient(circle at 6% 0, rgba(255,255,255,0.92) 0 28px, transparent 29px),
+		radial-gradient(circle at 24% 0, rgba(255,255,255,0.96) 0 22px, transparent 23px),
+		radial-gradient(circle at 41% 0, rgba(255,255,255,0.93) 0 30px, transparent 31px),
+		radial-gradient(circle at 61% 0, rgba(255,255,255,0.98) 0 25px, transparent 26px),
+		radial-gradient(circle at 79% 0, rgba(255,255,255,0.92) 0 27px, transparent 28px),
+		radial-gradient(circle at 95% 0, rgba(255,255,255,0.95) 0 24px, transparent 25px);
+	pointer-events: none;
+}
+
+.pl-ref-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 1rem;
+	color: var(--pl-mint);
+	font-size: 0.82rem;
+	font-weight: 800;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+}
+
+.pl-ref-eyebrow::before {
+	content: "";
+	width: 2.5rem;
+	height: 1px;
+	background: currentColor;
+}
+
+.pl-ref-title {
+	margin: 0;
+	font-family: 'Berkshire Swash', serif;
+	font-size: clamp(2.8rem, 4vw, 4.5rem);
+	line-height: 0.95;
+	letter-spacing: -0.03em;
+	color: inherit;
+}
+
+.pl-ref-copy {
+	margin: 0;
+	font-size: 1.04rem;
+	line-height: 1.8;
+	color: rgba(23, 61, 55, 0.78);
+}
+
+.pl-flow--dark .pl-ref-copy {
+	color: rgba(247, 243, 234, 0.76);
+}
+
+.pl-ref-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.pl-ref-button,
+.pl-ref-button:visited {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.7rem;
+	min-height: 3.6rem;
+	padding: 0.95rem 1.45rem 0.9rem;
+	border-radius: 999px;
+	font-size: 0.92rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease;
+}
+
+.pl-ref-button:hover,
+.pl-ref-button:focus-visible {
+	transform: translateY(-2px);
+}
+
+.pl-ref-button--primary {
+	background: linear-gradient(135deg, var(--pl-green), var(--pl-green-deep));
+	color: #f7f3ea;
+	box-shadow: 0 18px 34px rgba(9, 31, 28, 0.18);
+}
+
+.pl-ref-button--light {
+	background: linear-gradient(135deg, #fffef8, #ede5d8);
+	color: var(--pl-green);
+	box-shadow: 0 18px 34px rgba(17, 39, 35, 0.14);
+}
+
+.pl-ref-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+	gap: clamp(2rem, 4vw, 4.5rem);
+	align-items: center;
+}
+
+.pl-orbit {
+	position: absolute;
+	border: 1px dashed rgba(56, 178, 145, 0.36);
+	border-radius: 999px;
+	pointer-events: none;
+}
+
+.pl-orbit--about {
+	left: 3%;
+	top: 12%;
+	width: min(44rem, 68vw);
+	height: min(36rem, 54vw);
+}
+
+.pl-orbit--contact {
+	right: 5%;
+	top: 18%;
+	width: min(28rem, 34vw);
+	height: min(18rem, 24vw);
+}
+
+.pl-dot {
+	position: absolute;
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: 999px;
+	background: #f59d17;
+	box-shadow: 0 10px 24px rgba(245, 157, 23, 0.28);
+}
+
+.pl-dot--about {
+	left: 70%;
+	top: 17%;
+}
+
+.pl-dot--gallery {
+	right: 8%;
+	top: 14%;
+}
+
+.pl-about-media {
+	position: relative;
+	padding: 2.2rem 2rem 1.1rem;
+}
+
+.pl-about-plate {
+	position: relative;
+	display: grid;
+	place-items: center;
+	aspect-ratio: 1 / 1;
+	max-width: 38rem;
+	margin: 0 auto;
+	border-radius: 50%;
+	background:
+		radial-gradient(circle at 35% 30%, #ffffff 0%, #f8f1e4 48%, #e9dfd0 74%, #dacdbb 100%);
+	box-shadow:
+		0 26px 48px rgba(13, 34, 30, 0.16),
+		inset 0 -12px 28px rgba(155, 139, 118, 0.18);
+}
+
+.pl-about-plate::before {
+	content: "";
+	position: absolute;
+	inset: -1.2rem;
+	border: 2px dashed rgba(245, 157, 23, 0.34);
+	border-radius: 50%;
+}
+
+.pl-about-badge {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -22%);
+	padding: 0.85rem 1.4rem;
+	border-radius: 1.4rem 1.4rem 0.9rem 0.9rem;
+	background: linear-gradient(180deg, #173d37, #102c28);
+	color: #fff8ee;
+	font-family: 'Berkshire Swash', serif;
+	font-size: 1.55rem;
+	line-height: 1;
+	box-shadow: 0 18px 30px rgba(7, 21, 19, 0.24);
+}
+
+.pl-about-main-image {
+	width: min(92%, 29rem);
+	filter: drop-shadow(0 24px 30px rgba(18, 37, 33, 0.18));
+}
+
+.pl-garnish {
+	position: absolute;
+	filter: drop-shadow(0 16px 24px rgba(9, 31, 28, 0.18));
+}
+
+.pl-garnish--tomato {
+	left: -1%;
+	top: 16%;
+	width: clamp(3.6rem, 8vw, 5rem);
+}
+
+.pl-garnish--greens {
+	right: -1%;
+	top: 18%;
+	width: clamp(5rem, 12vw, 7rem);
+}
+
+.pl-garnish--salad {
+	left: 3%;
+	bottom: 2%;
+	width: clamp(4.4rem, 9vw, 6rem);
+}
+
+.pl-garnish--wings {
+	right: 1%;
+	bottom: -1%;
+	width: clamp(6.4rem, 14vw, 9rem);
+}
+
+.pl-about-text {
+	position: relative;
+	z-index: 1;
+}
+
+.pl-about-stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.pl-stat {
+	padding: 1.15rem 1rem;
+	border-radius: 1.4rem;
+	background: rgba(255, 255, 255, 0.74);
+	box-shadow: 0 16px 28px rgba(14, 36, 32, 0.08);
+}
+
+.pl-stat strong {
+	display: block;
+	font-size: 1.5rem;
+	color: var(--pl-green);
+}
+
+.pl-stat span {
+	display: block;
+	margin-top: 0.35rem;
+	font-size: 0.76rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: rgba(23, 61, 55, 0.54);
+}
+
+.pl-gallery-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+	gap: clamp(1.5rem, 4vw, 3.2rem);
+	align-items: center;
+}
+
+.pl-gallery-copy {
+	max-width: 25rem;
+}
+
+.pl-gallery-surface {
+	position: relative;
+	padding: 2.5rem 0 1.5rem;
+}
+
+.pl-gallery-track {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: minmax(14rem, 1fr);
+	gap: 1.35rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 0.4rem;
+	scrollbar-width: none;
+}
+
+.pl-gallery-track::-webkit-scrollbar {
+	display: none;
+}
+
+.pl-gallery-card {
+	position: relative;
+	min-height: 26rem;
+	border-radius: 2.5rem;
+	overflow: hidden;
+	scroll-snap-align: center;
+	box-shadow: 0 28px 44px rgba(14, 35, 31, 0.14);
+}
+
+.pl-gallery-card--tall {
+	min-height: 33rem;
+}
+
+.pl-gallery-card img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pl-gallery-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(10, 24, 22, 0.02), rgba(10, 24, 22, 0.36));
+}
+
+.pl-gallery-controls {
+	display: flex;
+	gap: 0.9rem;
+	justify-content: flex-end;
+	margin-top: 1.35rem;
+}
+
+.pl-gallery-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.15rem;
+	height: 3.15rem;
+	border: 0;
+	border-radius: 999px;
+	background: #f59d17;
+	color: #fff;
+	font-size: 1.35rem;
+	cursor: pointer;
+	box-shadow: 0 18px 30px rgba(245, 157, 23, 0.24);
+}
+
+.pl-signature-panel {
+	position: relative;
+	padding: 1.6rem;
+	border-radius: 2.2rem;
+	background: linear-gradient(180deg, #f59d17 0%, #f7a61f 100%);
+	box-shadow: 0 30px 50px rgba(17, 35, 31, 0.22);
+}
+
+.pl-signature-inner {
+	position: relative;
+	min-height: 34rem;
+	padding: 2rem;
+	border-radius: 1.7rem;
+	background:
+		linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px),
+		linear-gradient(180deg, #112724 0%, #0b1d1a 100%);
+	background-size: 3rem 3rem, 3rem 3rem, auto;
+	overflow: hidden;
+}
+
+.pl-signature-inner::after {
+	content: "";
+	position: absolute;
+	left: 1rem;
+	right: 1rem;
+	bottom: 0;
+	height: 5rem;
+	background: radial-gradient(circle at 22% 0, #ffffff 0 40%, transparent 42%);
+	opacity: 0.96;
+	filter: blur(8px);
+}
+
+.pl-signature-logo {
+	display: inline-flex;
+	padding: 0.7rem 1rem;
+	border-radius: 1.1rem;
+	background: rgba(245, 157, 23, 0.14);
+	color: #fff7ea;
+	font-family: 'Berkshire Swash', serif;
+	font-size: 1.35rem;
+}
+
+.pl-signature-card-title {
+	margin: 1.5rem 0 0;
+	max-width: 13rem;
+	font-family: 'Berkshire Swash', serif;
+	font-size: clamp(2rem, 3vw, 3.2rem);
+	line-height: 0.98;
+	color: #fff7ea;
+}
+
+.pl-signature-list {
+	display: grid;
+	gap: 0.9rem;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	list-style: none;
+	color: rgba(255, 248, 236, 0.88);
+}
+
+.pl-signature-list li::before {
+	content: "•";
+	margin-right: 0.65rem;
+	color: #f59d17;
+}
+
+.pl-signature-food {
+	position: absolute;
+	right: -6%;
+	bottom: 0;
+	width: clamp(18rem, 42vw, 28rem);
+	filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.28));
+}
+
+.pl-signature-price {
+	position: absolute;
+	left: 2rem;
+	bottom: 1.65rem;
+	color: #fff6eb;
+	font-family: 'Berkshire Swash', serif;
+	font-size: 2rem;
+}
+
+.pl-order-band {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 0.45fr) minmax(0, 0.55fr);
+	gap: clamp(2rem, 4vw, 3.5rem);
+	align-items: center;
+	padding: clamp(2rem, 4vw, 3rem);
+	border-radius: 2.6rem;
+	background: linear-gradient(180deg, rgba(255,255,255,0.52), rgba(255,255,255,0.3));
+	box-shadow: 0 30px 56px rgba(17, 39, 35, 0.1);
+}
+
+.pl-device-stack {
+	position: relative;
+	min-height: 32rem;
+}
+
+.pl-device {
+	position: absolute;
+	overflow: hidden;
+	background: #101e1b;
+	box-shadow: 0 28px 48px rgba(12, 31, 28, 0.22);
+}
+
+.pl-device--tablet {
+	right: 0;
+	top: 0;
+	width: min(36rem, 100%);
+	aspect-ratio: 1.22 / 1;
+	border: 10px solid #0f1918;
+	border-radius: 2.4rem;
+	transform: rotate(12deg);
+}
+
+.pl-device--phone {
+	left: 10%;
+	bottom: 1rem;
+	width: 12rem;
+	aspect-ratio: 0.5 / 1;
+	border: 8px solid #0f1918;
+	border-radius: 2rem;
+	transform: rotate(-14deg);
+}
+
+.pl-device img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pl-store-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1.8rem;
+}
+
+.pl-store-pill {
+	display: inline-flex;
+	align-items: center;
+	min-height: 4.2rem;
+	padding: 0.95rem 1.3rem;
+	border-radius: 1.2rem;
+	background: #0e2925;
+	color: #fff8ee;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+}
+
+.pl-contact-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr);
+	gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.pl-contact-cards {
+	display: grid;
+	gap: 1.2rem;
+	align-content: start;
+}
+
+.pl-contact-card {
+	display: grid;
+	grid-template-columns: 4.3rem minmax(0, 1fr);
+	gap: 1rem;
+	align-items: center;
+	padding: 1.45rem;
+	border-radius: 1.8rem;
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 18px 34px rgba(13, 34, 30, 0.08);
+}
+
+.pl-contact-icon {
+	display: grid;
+	place-items: center;
+	width: 4.3rem;
+	height: 4.3rem;
+	border-radius: 1.2rem;
+	background: linear-gradient(180deg, #f59d17, #f3a72b);
+	color: #fff;
+	font-size: 1.35rem;
+	font-weight: 800;
+}
+
+.pl-contact-card strong {
+	display: block;
+	margin-bottom: 0.25rem;
+	color: var(--pl-green);
+}
+
+.pl-contact-card p {
+	margin: 0;
+	line-height: 1.7;
+	color: rgba(23, 61, 55, 0.75);
+}
+
+.pl-contact-map {
+	position: relative;
+	min-height: 42rem;
+	border-radius: 2rem;
+	overflow: hidden;
+	background: #dbe7e1;
+	box-shadow: 0 30px 54px rgba(16, 37, 34, 0.12);
+}
+
+.pl-contact-map iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	filter: saturate(0.88) hue-rotate(-10deg);
+}
+
+.pl-contact-form {
+	position: absolute;
+	top: 1.8rem;
+	right: 1.8rem;
+	width: min(34rem, calc(100% - 3.6rem));
+	padding: 1.8rem;
+	border: 1px solid rgba(16, 37, 34, 0.14);
+	border-radius: 1.9rem;
+	background: rgba(255, 252, 246, 0.94);
+	backdrop-filter: blur(12px);
+}
+
+.pl-contact-form h3 {
+	margin: 0 0 1rem;
+	font-family: 'Berkshire Swash', serif;
+	font-size: 2.5rem;
+	color: #163d37;
+}
+
+.pl-contact-fields {
+	display: grid;
+	gap: 0.85rem;
+}
+
+.pl-contact-fields input,
+.pl-contact-fields textarea {
+	width: 100%;
+	padding: 1rem 1.05rem;
+	border: 0;
+	border-radius: 1rem;
+	background: #f0eee8;
+	color: #173d37;
+	font-size: 1rem;
+}
+
+.pl-contact-fields textarea {
+	min-height: 9.2rem;
+	resize: vertical;
+}
+
+.pl-contact-form-note {
+	margin-top: 0.9rem;
+	font-size: 0.88rem;
+	line-height: 1.6;
+	color: rgba(23, 61, 55, 0.7);
+}
+
+.pl-review-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.2rem;
+	margin-top: 2rem;
+}
+
+.pl-review-card {
+	padding: 1.8rem;
+	border-radius: 1.8rem;
+	background: rgba(255,255,255,0.76);
+	box-shadow: 0 24px 40px rgba(10, 28, 24, 0.12);
+}
+
+.pl-review-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.pl-review-badge {
+	display: inline-grid;
+	place-items: center;
+	width: 2.2rem;
+	height: 2.2rem;
+	border-radius: 999px;
+	background: var(--pl-green);
+	color: #fff;
+	font-size: 0.86rem;
+	font-weight: 800;
+}
+
+.pl-stars {
+	color: #f59d17;
+	letter-spacing: 0.18em;
+}
+
+.pl-review-card p {
+	margin: 0;
+	color: rgba(23, 61, 55, 0.78);
+	line-height: 1.8;
+}
+
+.pl-review-author {
+	display: block;
+	margin-top: 1rem;
+	color: var(--pl-green);
+	font-weight: 800;
+}
+
+body.home .site-footer {
+	background:
+		radial-gradient(circle at 82% 20%, rgba(56, 178, 145, 0.12), transparent 22%),
+		linear-gradient(180deg, #173d37 0%, #0f2824 100%);
+	color: #f7f3ea;
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+	overflow: hidden;
+}
+
+body.home .site-footer::before {
+	content: "";
+	display: block;
+	height: 40px;
+	background:
+		radial-gradient(circle at 6% 0, #fffdf7 0 28px, transparent 29px),
+		radial-gradient(circle at 24% 0, #fffdf7 0 22px, transparent 23px),
+		radial-gradient(circle at 43% 0, #fffdf7 0 29px, transparent 30px),
+		radial-gradient(circle at 62% 0, #fffdf7 0 24px, transparent 25px),
+		radial-gradient(circle at 80% 0, #fffdf7 0 28px, transparent 29px),
+		radial-gradient(circle at 96% 0, #fffdf7 0 24px, transparent 25px);
+}
+
+body.home .site-primary-footer-wrap,
+body.home .site-below-footer-wrap {
+	background: transparent;
+}
+
+body.home .ast-builder-grid-row-container-inner {
+	max-width: 1240px;
+	padding-inline: 1rem;
+}
+
+body.home .site-primary-footer-wrap {
+	padding: 2.6rem 0 1.2rem;
+}
+
+body.home .site-footer .widget-title,
+body.home .site-footer .wp-block-heading,
+body.home .site-footer h4 {
+	margin-bottom: 1rem;
+	color: #fff8ee;
+	font-family: 'Berkshire Swash', serif;
+	font-size: 2rem;
+	font-weight: 400;
+}
+
+body.home .site-footer p,
+body.home .site-footer .menu-link,
+body.home .site-footer a:not(.footer-social-item) {
+	color: rgba(247, 243, 234, 0.78);
+}
+
+body.home .site-footer .menu-link:hover,
+body.home .site-footer a:hover {
+	color: #ffffff;
+}
+
+body.home .site-footer .footer-social-item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: 999px;
+	background: rgba(255,255,255,0.08);
+}
+
+body.home .site-below-footer-wrap {
+	border-top: 1px solid rgba(255,255,255,0.08);
+	padding: 0.8rem 0 1.4rem;
+}
+
+body.home .ast-footer-copyright,
+body.home .ast-footer-copyright p {
+	color: rgba(247, 243, 234, 0.58);
+}
+
+@media (max-width: 1100px) {
+	.pl-ref-grid,
+	.pl-gallery-layout,
+	.pl-order-band,
+	.pl-contact-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.pl-about-stats,
+	.pl-review-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.pl-contact-form {
+		position: relative;
+		top: auto;
+		right: auto;
+		width: calc(100% - 2.6rem);
+		margin: 1.3rem;
+	}
+}
+
+@media (max-width: 921px) {
+	.pl-flow {
+		padding: 4.3rem 0;
+	}
+
+	.pl-ref-shell {
+		max-width: calc(100vw - 1.25rem);
+	}
+
+	.pl-about-media {
+		padding: 1rem 0 0.6rem;
+	}
+
+	.pl-gallery-card {
+		min-height: 22rem;
+	}
+
+	.pl-gallery-card--tall {
+		min-height: 26rem;
+	}
+
+	.pl-signature-inner,
+	.pl-contact-map {
+		min-height: 28rem;
+	}
+
+	.pl-order-band {
+		padding: 1.4rem;
+	}
+
+	.pl-device-stack {
+		min-height: 24rem;
+	}
+
+	.pl-device--tablet {
+		width: min(100%, 30rem);
+	}
+
+	.pl-device--phone {
+		width: 9rem;
+		left: 4%;
+	}
+}
+
+@media (max-width: 640px) {
+	.pl-ref-title {
+		font-size: clamp(2.3rem, 12vw, 3.25rem);
+	}
+
+	.pl-about-stats,
+	.pl-review-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.pl-gallery-controls {
+		justify-content: flex-start;
+	}
+
+	.pl-gallery-track {
+		grid-auto-columns: minmax(80%, 1fr);
+	}
+
+	.pl-signature-panel {
+		padding: 0.9rem;
+	}
+
+	.pl-signature-inner {
+		padding: 1.35rem;
+	}
+
+	.pl-signature-food {
+		right: -20%;
+		width: 18rem;
+	}
+
+	.pl-contact-card {
+		grid-template-columns: 3.5rem minmax(0, 1fr);
+		padding: 1.1rem;
+	}
+
+	.pl-contact-icon {
+		width: 3.5rem;
+		height: 3.5rem;
+	}
+}
+
 /*
 .ast-button-wrap {
 display: none;
@@ -3669,215 +4722,177 @@ class="post-366 page type-page status-publish ast-article-single" id="post-366" 
 </div>
 </section>
 
-
-<div id="aboutus" class="wp-block-uagb-container uagb-block-2b2e2abf alignfull uagb-is-root-container pl-intro-section"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-container uagb-block-30a9ba27">
-<div class="wp-block-uagb-info-box uagb-block-81f3449e uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h2 class="uagb-ifb-title">Papa Lu in Trier</h2></div><p class="uagb-ifb-desc">Mitten in Trier findest du bei Papa Lu saftige Burger, crispy Chicken, frische Wraps und Salate in entspannter Atmosphäre. Ob schnell etwas mitnehmen oder gemütlich vor Ort essen &#8211; bei uns steht guter Geschmack ohne Umwege im Mittelpunkt.</p></div></div>
+<section id="aboutus" class="pl-flow pl-flow--light" aria-labelledby="pl-about-title">
+<div class="pl-ref-shell pl-ref-grid">
+<span class="pl-orbit pl-orbit--about" aria-hidden="true"></span>
+<span class="pl-dot pl-dot--about" aria-hidden="true"></span>
+<div class="pl-about-media">
+<div class="pl-about-plate">
+<div class="pl-about-badge">Papa Lu</div>
+<img class="pl-about-main-image" src="/assets/ai_images/wrap.png" alt="Freigestellter Crispy Chicken Wrap von Papa Lu" width="1200" height="1200" loading="lazy" decoding="async">
 </div>
-
-
-
-<div class="wp-block-uagb-container uagb-block-da6f683d">
-<div class="wp-block-uagb-info-box uagb-block-e7f1c0dc uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-image-content"><img decoding="async" src="/wp-content/uploads/2025/12/porta-scaled.jpg" alt="porta" width="100" height="71" loading="lazy" title="Home"></div><div class="uagb-ifb-title-wrap"><h5 class="uagb-ifb-title">Mitten in Trier</h5></div><p class="uagb-ifb-desc">Zentral gelegen, unkompliziert und genau richtig für alle, die gutes Essen ohne viel Schnickschnack wollen.</p></div></div></div>
+<img class="pl-garnish pl-garnish--tomato" src="/assets/ai_images/tomatoes.png" alt="" width="512" height="512" loading="lazy" decoding="async">
+<img class="pl-garnish pl-garnish--greens" src="/assets/ai_images/herbs.png" alt="" width="512" height="512" loading="lazy" decoding="async">
+<img class="pl-garnish pl-garnish--salad" src="/assets/ai_images/salad.png" alt="" width="512" height="512" loading="lazy" decoding="async">
 </div>
-</div></div>
-
-
-
-<div class="wp-block-uagb-container uag-blocks-common-selector uagb-block-ee3e29a7 alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-info-box uagb-block-4303f376 uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h6 class="uagb-ifb-title-prefix">Unsere Favoriten</h6><h2 class="uagb-ifb-title">Unsere Signature Dishes</h2></div><p class="uagb-ifb-desc">Die Gerichte, für die viele wiederkommen: crispy, frisch und voll im Geschmack.</p></div></div>
-
-
-
-<div class="wp-block-uagb-container uagb-block-b3aa6e56">
-<div class="wp-block-uagb-restaurant-menu uagb-block-5a878ad7 uagb-rm__desk-column-1 uagb-rm__tablet-column-1 uagb-rm__mobile-column-1">
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Crispy Chicken Burger</h6><div class="uagb-rm__desc">Knuspriges Chickenfilet, Cheddar, Salat, Tomate, Pickles, Zitronen-Remoulade und Trüffel-Ketchup.</div></div><span class="uagb-rm__price">16,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Crispy Chicken Wrap</h6><div class="uagb-rm__desc">Knuspriges Chickenfilet, Cheddar, Römersalat, Tomate, Essiggurke, Limetten-Remoulade und Trüffel-Ketchup.</div></div><span class="uagb-rm__price">16,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Crispy Chicken Roll</h6><div class="uagb-rm__desc">Knuspriges Chickenfilet, Essiggurken und Mozzarella, dazu Pommes, Knobi-Sauce und Cinnamon-Sauce.</div></div><span class="uagb-rm__price">16,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Papa Lu Sharing Plate</h6><div class="uagb-rm__desc">2 Lemon Pepper Wings, 3 Mozzarella Sticks, 3 Chili-Cheese Nuggets, 2 Falafel, Sweet Potato Fries und 3 Dips.</div></div><span class="uagb-rm__price">12,90 €</span></div><div class="uagb-rm__separator"></div></div>
+<div class="pl-about-text">
+<div class="pl-ref-eyebrow">Über Papa Lu</div>
+<h2 id="pl-about-title" class="pl-ref-title">Mitten in Trier. Locker, frisch und richtig lecker.</h2>
+<p class="pl-ref-copy">Papa Lu ist der Spot für crispy Chicken, saftige Burger, frische Wraps und Bowls mit genau dem Maß an Komfort, auf das man im Alltag wirklich Lust hat. Schnell zum Mitnehmen, entspannt vor Ort oder als spontane Abendrunde mit Freunden: Hier geht es um ehrliches Essen mit Charakter.</p>
+<div class="pl-ref-actions">
+<a class="pl-ref-button pl-ref-button--primary" href="/about-us/">Mehr über uns</a>
+<a class="pl-ref-button pl-ref-button--light" href="https://papalu.simplywebshop.de" rel="nofollow">Direkt bestellen</a>
 </div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu uagb-block-d8411305 uagb-rm__desk-column-1 uagb-rm__tablet-column-1 uagb-rm__mobile-column-1">
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Business Menü</h6><div class="uagb-rm__desc">1 Burger oder Wrap, 4 Wings, 2 Filets, 1 Dip nach Wahl plus Pommes, Coleslaw und 4 Mini-Brötchen.</div></div><span class="uagb-rm__price">22,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Crispy Chicken Wings</h6><div class="uagb-rm__desc">6 knusprige Chicken Wings, klassisch oder Lemon Pepper, serviert mit Dip.</div></div><span class="uagb-rm__price">7,90 /<br>8,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Vegetarische Platte</h6><div class="uagb-rm__desc">4 Mozzarella Sticks, 4 Chili-Cheese Nuggets, 4 Falafel, Sweet Potato Fries und 3 Dips.</div></div><span class="uagb-rm__price">9,90 €</span></div><div class="uagb-rm__separator"></div></div>
-
-
-
-<div class="wp-block-uagb-restaurant-menu-child uagb-rest_menu__wrap uagb-rm__align-left uagb-rm__image-aligned-middle uagb-rm-stacked-mobile uagb-rm__desk-column-1 uagb-rm__tablet-column-2 uagb-rm__mobile-column-1"><div class="uagb-rm__content"><div class="uagb-rm-details"><h6 class="uagb-rm__title">Falafel Salat</h6><div class="uagb-rm__desc">Romanasalat mit Tomaten, Gurke, Kichererbsen, Paprika, Petersilie, Oliven und roten Zwiebeln, dazu 5 Falafel und Hummus.</div></div><span class="uagb-rm__price">12,90 €</span></div><div class="uagb-rm__separator"></div></div>
+<div class="pl-about-stats" aria-label="Highlights von Papa Lu">
+<div class="pl-stat"><strong>Crispy</strong><span>Chicken Fokus</span></div>
+<div class="pl-stat"><strong>Zentral</strong><span>Jakobstraße 2-3</span></div>
+<div class="pl-stat"><strong>Veggie</strong><span>Auch Falafel & Bowls</span></div>
 </div>
 </div>
-
-
-
-<div class="wp-block-uagb-buttons uagb-buttons__outer-wrap uagb-btn__default-btn uagb-btn-tablet__default-btn uagb-btn-mobile__default-btn uagb-block-2d52efe5"><div class="uagb-buttons__wrap uagb-buttons-layout-wrap ">
-<div class="wp-block-uagb-buttons-child uagb-buttons__outer-wrap uagb-block-e4231c18 wp-block-button"><div class="uagb-button__wrapper"><a class="uagb-buttons-repeater wp-block-button__link" aria-label="" href="/menu" rel="follow noopener" target="_self" role="button"><div class="uagb-button__link">Speisekarte ansehen</div></a></div></div>
-</div></div>
-</div></div>
-
-
-
-<div id="aboutus" class="wp-block-uagb-container uagb-block-1e4ad29f alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-container uagb-block-c86ab46e">
-<div class="wp-block-uagb-info-box uagb-block-07b3939c uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h2 class="uagb-ifb-title">Was Papa Lu ausmacht</h2></div><p class="uagb-ifb-desc">Drei Gründe, warum Gäste wiederkommen.</p></div></div>
-
-
-
-<div class="wp-block-uagb-info-box uagb-block-bfdb66e6 uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-image-content"><img decoding="async" src="/wp-content/uploads/2025/11/good-vibes-300x200-1.jpg" alt="Good Vibes" width="100" height="66" loading="lazy" title="Home"></div><div class="uagb-ifb-title-wrap"><h5 class="uagb-ifb-title">Frisch zubereitet</h5></div><p class="uagb-ifb-desc">Keine unnötigen Spielereien &#8211; sondern gutes Essen, sauber gemacht und mit Geschmack.</p></div></div></div>
-
-
-
-<div class="wp-block-uagb-image alignleft uagb-block-f60a9ea2 wp-block-uagb-image--layout-default wp-block-uagb-image--effect-static wp-block-uagb-image--align-left uag-hide-mob uag-blocks-common-selector" style="--z-index-desktop:3;;--z-index-tablet:3;;--z-index-mobile:undefined;"><figure class="wp-block-uagb-image__figure"><img decoding="async" srcset="/wp-content/uploads/2025/11/bg-image-cake-and-coffee-300x211-1.png " sizes="auto, (max-width: 480px) 150px" src="/wp-content/uploads/2025/11/bg-image-cake-and-coffee-300x211-1.png" alt="Bg Image Cake And Coffee" class="uag-image-109" width="487" height="342" title="Home" loading="lazy" role="img"></figure></div>
 </div>
+</section>
 
-
-
-<div class="wp-block-uagb-container uagb-block-78c07347">
-<div class="wp-block-uagb-info-box uagb-block-7959e718 uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-image-content"><img decoding="async" src="/wp-content/uploads/2025/11/cozy-place-300x200-1.jpg" alt="Cozy Place" width="100" height="66" loading="lazy" title="Home"></div><div class="uagb-ifb-title-wrap"><h5 class="uagb-ifb-title">Für jeden Anlass</h5></div><p class="uagb-ifb-desc">Ob Mittagspause, Abendessen oder entspannt mit Freunden &#8211; Papa Lu passt immer.</p></div></div></div>
-
-
-
-<div class="wp-block-uagb-info-box uagb-block-9c1ab8ab uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-image-content"><img decoding="async" src="/wp-content/uploads/2025/11/relax-atmosphere-300x200-1.jpg" alt="Relax Atmosphere" width="100" height="66" loading="lazy" title="Home"></div><div class="uagb-ifb-title-wrap"><h5 class="uagb-ifb-title">Auch mit Veggie-Optionen</h5></div><p class="uagb-ifb-desc">Neben Chicken, Burgern und Wraps gibt es auch vegetarische und vegane Alternativen wie Falafel.</p></div></div></div>
+<section class="pl-flow pl-flow--light" aria-labelledby="pl-gallery-title">
+<div class="pl-ref-shell pl-gallery-layout">
+<div class="pl-gallery-copy">
+<div class="pl-ref-eyebrow">Galerie</div>
+<h2 id="pl-gallery-title" class="pl-ref-title">Ein Blick in den Laden und auf den Teller.</h2>
+<p class="pl-ref-copy">Die Section orientiert sich eng an der Referenz: ein ruhiger Textblock links und ein editorialer Bildlauf rechts. Statt generischer Stockbilder zeigen wir Papa Lu mit Interior, Food und dem Vibe vor Ort.</p>
+<div class="pl-ref-actions">
+<a class="pl-ref-button pl-ref-button--primary" href="/menu/">Speisekarte ansehen</a>
 </div>
-</div></div>
+</div>
+<div class="pl-gallery-surface">
+<span class="pl-dot pl-dot--gallery" aria-hidden="true"></span>
+<div class="pl-gallery-track" data-gallery-track>
+<article class="pl-gallery-card pl-gallery-card--tall"><img src="/wp-content/uploads/2025/11/cozy-place-300x200-1.jpg" alt="Innenraum von Papa Lu" width="300" height="200" loading="lazy" decoding="async"></article>
+<article class="pl-gallery-card"><img src="/wp-content/uploads/2025/11/fine-dining-food-300x200-1.jpg" alt="Food-Fotografie von Papa Lu" width="300" height="200" loading="lazy" decoding="async"></article>
+<article class="pl-gallery-card"><img src="/wp-content/uploads/2025/11/sort-of-food-on-the-table-300x200-1.jpg" alt="Gerichte auf einem Tisch bei Papa Lu" width="300" height="200" loading="lazy" decoding="async"></article>
+<article class="pl-gallery-card pl-gallery-card--tall"><img src="/wp-content/uploads/2025/11/people-having-lunch-300x200-1.jpg" alt="Gäste beim Essen im Restaurant" width="300" height="200" loading="lazy" decoding="async"></article>
+<article class="pl-gallery-card"><img src="/wp-content/uploads/2025/11/chef-standing-in-restaurant-kitchen-300x200-1.jpg" alt="Blick in die Küche" width="300" height="200" loading="lazy" decoding="async"></article>
+<article class="pl-gallery-card"><img src="/wp-content/uploads/2025/11/having-lunch-together-300x200-1.jpg" alt="Gemeinsames Essen bei Papa Lu" width="300" height="200" loading="lazy" decoding="async"></article>
+</div>
+<div class="pl-gallery-controls">
+<button class="pl-gallery-button" type="button" data-gallery-prev aria-label="Vorherige Bilder">←</button>
+<button class="pl-gallery-button" type="button" data-gallery-next aria-label="Nächste Bilder">→</button>
+</div>
+</div>
+</div>
+</section>
 
+<section class="pl-flow pl-flow--dark" aria-labelledby="pl-signature-title">
+<div class="pl-ref-shell pl-ref-grid">
+<div class="pl-signature-panel">
+<div class="pl-signature-inner">
+<div class="pl-signature-logo">Papa Lu</div>
+<h2 class="pl-signature-card-title">Crispy Chicken Plate</h2>
+<ul class="pl-signature-list">
+<li>Knuspriges Chicken mit Signature-Crunch</li>
+<li>Fries, Dips und saftige Side-Kicks</li>
+<li>Perfekt für Sharing oder als Combo</li>
+</ul>
+<div class="pl-signature-price">ab 12,90 €</div>
+<img class="pl-signature-food" src="/assets/ai_images/wings.png" alt="Freigestellte Chicken Wings von Papa Lu" width="1200" height="1200" loading="lazy" decoding="async">
+</div>
+</div>
+<div>
+<div class="pl-ref-eyebrow">Signature</div>
+<h2 id="pl-signature-title" class="pl-ref-title">Die Gerichte, wegen denen man wiederkommt.</h2>
+<p class="pl-ref-copy">Unsere Favorites holen die Stimmung der Referenz in Papa-Lu-Optik rüber: starke Food-Fokussierung, plakatives Highlight links und klare Erklärung rechts. Crispy Chicken Burger, Wraps, Wings und Sharing Plates bekommen hier die Bühne, die sie verdienen.</p>
+<div class="pl-ref-actions">
+<a class="pl-ref-button pl-ref-button--light" href="/menu/">Komplettes Menü</a>
+<a class="pl-ref-button pl-ref-button--primary" href="https://papalu.simplywebshop.de" rel="nofollow">Jetzt bestellen</a>
+</div>
+</div>
+</div>
+</section>
 
+<section class="pl-flow pl-flow--soft" aria-labelledby="pl-order-title">
+<div class="pl-ref-shell">
+<div class="pl-order-band">
+<div>
+<div class="pl-ref-eyebrow">Online bestellen</div>
+<h2 id="pl-order-title" class="pl-ref-title">Dein Papa Lu Menü immer griffbereit.</h2>
+<p class="pl-ref-copy">Die Referenz arbeitet mit einer Geräte-Section, also übersetzen wir genau das in Papa Lu: ein klarer Bestellmoment mit Food-Fokus, Menü-Zugang und starkem Call to Action. Statt App-Store-Rhetorik verlinken wir direkt in den Bestellflow und auf die Speisekarte.</p>
+<div class="pl-ref-actions">
+<a class="pl-ref-button pl-ref-button--primary" href="https://papalu.simplywebshop.de" rel="nofollow">Bestellseite öffnen</a>
+<a class="pl-ref-button pl-ref-button--light" href="/menu/">Menü ansehen</a>
+</div>
+<div class="pl-store-row">
+<a class="pl-store-pill" href="https://papalu.simplywebshop.de" rel="nofollow">Bestellen in wenigen Klicks</a>
+<a class="pl-store-pill" href="tel:0049123456789">Telefonisch bestellen</a>
+</div>
+</div>
+<div class="pl-device-stack" aria-hidden="true">
+<div class="pl-device pl-device--tablet"><img src="/wp-content/uploads/2025/11/sort-of-food-on-the-table-300x200-1.jpg" alt="" width="300" height="200" loading="lazy" decoding="async"></div>
+<div class="pl-device pl-device--phone"><img src="/wp-content/uploads/2025/11/fine-dining-food-300x200-1.jpg" alt="" width="300" height="200" loading="lazy" decoding="async"></div>
+</div>
+</div>
+</div>
+</section>
 
-<div class="wp-block-uagb-container uagb-block-de205fd5 alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-info-box uagb-block-990e3dca uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h6 class="uagb-ifb-title-prefix">Aus dem Menü</h6><h2 class="uagb-ifb-title">Frisch, crispy, unkompliziert</h2></div><p class="uagb-ifb-desc">Von Burgern und Wraps bis zu Salaten und Beilagen &#8211; hier bekommst du ehrliches Essen, auf das man wirklich Lust hat.</p></div></div>
-</div></div>
+<section class="pl-flow pl-flow--light" aria-labelledby="pl-reviews-title">
+<div class="pl-ref-shell">
+<div class="pl-ref-eyebrow">Bewertungen</div>
+<h2 id="pl-reviews-title" class="pl-ref-title">Was Gäste über Papa Lu sagen.</h2>
+<div class="pl-review-grid">
+<article class="pl-review-card">
+<div class="pl-review-top"><span class="pl-review-badge">G</span><span class="pl-stars">★★★★★</span></div>
+<p>„Wir sind heute das erste Mal bei Papa Lu gewesen und wurden mehr als überzeugt. Das Essen war extrem lecker, die Getränke haben auch überzeugt.“</p>
+<span class="pl-review-author">Jean-Pierre Morgen</span>
+</article>
+<article class="pl-review-card">
+<div class="pl-review-top"><span class="pl-review-badge">G</span><span class="pl-stars">★★★★★</span></div>
+<p>„Der Chicken Mango Burger war super lecker und es war sehr viel Hähnchen drauf. Geschmacklich richtig stark und insgesamt eine schöne Überraschung.“</p>
+<span class="pl-review-author">Esmeralda Q.</span>
+</article>
+<article class="pl-review-card">
+<div class="pl-review-top"><span class="pl-review-badge">G</span><span class="pl-stars">★★★★★</span></div>
+<p>„Ein tolles Lokal mit köstlichem Essen. Das Hähnchen war herrlich knusprig, die Portionen großzügig und die Limonade ebenfalls sehr gut.“</p>
+<span class="pl-review-author">Floyd en Marisa Bakker</span>
+</article>
+</div>
+</div>
+</section>
 
-
-
-<div class="wp-block-uagb-container uagb-block-1a35c24e alignfull uagb-is-root-container">					<div
-						class="wp-block-uagb-image-gallery uagb-block-c1258565     "
-						style=""
-					>
-											<div class="spectra-image-gallery spectra-image-gallery__layout--masonry spectra-image-gallery__layout--masonry-col-3 spectra-image-gallery__layout--masonry-col-tab-3 spectra-image-gallery__layout--masonry-col-mob-1">
-											<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='207' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/fine-dining-food-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/fine-dining-food-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/fine-dining-food-300x200-1.jpg" alt="Fine Dining Food" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-						<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='208' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/having-lunch-together-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/having-lunch-together-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/having-lunch-together-300x200-1.jpg" alt="Having Lunch Together" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-						<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='338' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/testimonail-hero-bg-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/testimonail-hero-bg-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/testimonail-hero-bg-300x200-1.jpg" alt="Testimonail Hero Bg" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-						<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='210' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/people-having-lunch-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/people-having-lunch-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/people-having-lunch-300x200-1.jpg" alt="People Having Lunch" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-						<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='211' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/sort-of-food-on-the-table-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/sort-of-food-on-the-table-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/sort-of-food-on-the-table-300x200-1.jpg" alt="Sort Of Food On The Table" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-						<div class='spectra-image-gallery__media-wrapper--isotope'>
-							<div class='spectra-image-gallery__media-wrapper' data-spectra-gallery-image-id='212' tabindex="0">
-							<div class="spectra-image-gallery__media spectra-image-gallery__media--masonry">
-				<picture>
-					<source media="(min-width: 1024px)" srcset="/wp-content/uploads/2025/11/chef-standing-in-restaurant-kitchen-300x200-1.jpg">
-					<source media="(min-width: 768px)" srcset="/wp-content/uploads/2025/11/chef-standing-in-restaurant-kitchen-300x200-1.jpg">
-					<img decoding="async" class="spectra-image-gallery__media-thumbnail spectra-image-gallery__media-thumbnail--masonry" src="/wp-content/uploads/2025/11/chef-standing-in-restaurant-kitchen-300x200-1.jpg" alt="Chef Standing In Restaurant Kitchen" loading="lazy" title="Home">
-				</picture>
-				<div class="spectra-image-gallery__media-thumbnail-blurrer"></div>
-											<div class="spectra-image-gallery__media-thumbnail-caption-wrapper spectra-image-gallery__media-thumbnail-caption-wrapper--overlay"></div>
-								</div>
-						</div>
-						</div>
-										</div>
-																		</div>
-									</div>
-
-
-
-<div class="wp-block-uagb-container uagb-block-1cca6035 alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-info-box uagb-block-be3daac0 uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h6 class="uagb-ifb-title-prefix">Bewertungen</h6><h2 class="uagb-ifb-title">Das sagen unsere Gäste</h2><p class="uagb-ifb-desc">Ehrliches Feedback von Menschen, die bei Papa Lu gegessen haben.</p></div></div></div></div>
-
-
-
-<div class="wp-block-uagb-testimonial uagb-slick-carousel uagb-tm__arrow-outside uagb-block-89e61ad5 uagb-post__carousel_equal-height uagb-post__carousel_notset"><div class="is-carousel uagb-tm__columns-3 uagb-tm__items"><div class="uagb-testimonial__wrap  uagb-tm__imgicon-style-circle uagb-tm__image-position-top uagb-tm__bg-type-color "><div class="uagb-tm__content"><div class="uagb-tm__overlay"></div><div class="uagb-tm__text-wrap"><div class="pl-review-source"><span class="pl-google-badge">G</span><span class="uagb-tm__company">Google Bewertung</span><span class="pl-stars">★★★★★</span></div><div class="uagb-tm__desc">„Wir sind heute das erste Mal bei Papa Lu gewesen und wurden mehr als überzeugt. Das Essen war extrem lecker, die Getränke haben auch überzeugt. Stattet dem Team gerne einen Besuch ab, ihr werdet nicht enttäuscht! Wir sehen uns auf jeden Fall wieder. :-)“</div><div class="uagb-tm__meta-inner"><div class="uagb-testimonial-details"><span class="uagb-tm__author-name">Jean-Pierre Morgen</span></div></div></div></div></div><div class="uagb-testimonial__wrap  uagb-tm__imgicon-style-circle uagb-tm__image-position-top uagb-tm__bg-type-color "><div class="uagb-tm__content"><div class="uagb-tm__overlay"></div><div class="uagb-tm__text-wrap"><div class="pl-review-source"><span class="pl-google-badge">G</span><span class="uagb-tm__company">Google Bewertung</span><span class="pl-stars">★★★★★</span></div><div class="uagb-tm__desc">„Ich war sehr positiv von dem Essen überrascht. Der Chicken Mango Burger war super lecker und es war sehr viel Hähnchen drauf. Der Beeren-Maracuja Eistee war geschmacklich auch lecker, aber ein bisschen zu süß. Noch ein Tipp bzgl. der Salate, welche besser in Bowls umbenannt werden sollten. Da diese auch Reis und Pommes enthalten. Zudem war zu viel Reis und zu wenig Salat enthalten.“</div><div class="uagb-tm__meta-inner"><div class="uagb-testimonial-details"><span class="uagb-tm__author-name">Esmeralda Q.</span></div></div></div></div></div><div class="uagb-testimonial__wrap  uagb-tm__imgicon-style-circle uagb-tm__image-position-top uagb-tm__bg-type-color "><div class="uagb-tm__content"><div class="uagb-tm__overlay"></div><div class="uagb-tm__text-wrap"><div class="pl-review-source"><span class="pl-google-badge">G</span><span class="uagb-tm__company">Google Bewertung</span><span class="pl-stars">★★★★★</span></div><div class="uagb-tm__desc">„Ein tolles Lokal mit köstlichem Essen. Es gibt nur Hähnchen und vegetarische Gerichte. Das Hähnchen war herrlich knusprig, die Pommes ebenfalls schön knusprig und die Limonade köstlich. Die Portionen sind großzügig, und ich habe gesehen, dass sich alle anderen Gäste standardmäßig etwas zum Mitnehmen einpacken ließen.“</div><div class="uagb-tm__meta-inner"><div class="uagb-testimonial-details"><span class="uagb-tm__author-name">Floyd en Marisa Bakker</span></div></div></div></div></div></div></div>
-
-
-</div></div>
-
-
-
-<div class="wp-block-uagb-container uagb-block-74ee23fa alignfull uagb-is-root-container"><div class="uagb-container-inner-blocks-wrap">
-<div class="wp-block-uagb-info-box uagb-block-7784ace5 uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h2 class="uagb-ifb-title">Lust auf Papa Lu?</h2></div><p class="uagb-ifb-desc">Bestell direkt oder komm vorbei und genieße dein Essen vor Ort.</p><div class="uagb-ifb-button-wrapper wp-block-button"><a href="#" class="uagb-infobox-cta-link wp-block-button__link" target="_self" rel="noopener noreferrer" onclick="return false;"><span class="uagb-inline-editing">Jetzt bestellen</span></a></div></div></div></div>
-
-
-
-<div class="wp-block-uagb-info-box uagb-block-f6ee7e5c uagb-infobox__content-wrap  uagb-infobox-icon-above-title uagb-infobox-image-valign-top wp-block-uagb-info-box--has-margin"><div class="uagb-infobox-margin-wrapper"><div class="uagb-ifb-content"><div class="uagb-ifb-title-wrap"><h6 class="uagb-ifb-title-prefix">Telefonische Bestellung:</h6><p class="uagb-ifb-title">(0049) 123456789</p></div></div></div></div>
-
-
-
-<div class="wp-block-uagb-image alignright uagb-block-b553a09b wp-block-uagb-image--layout-default wp-block-uagb-image--effect-static wp-block-uagb-image--align-right uag-hide-tab uag-hide-mob"><figure class="wp-block-uagb-image__figure"><img decoding="async" srcset="/wp-content/uploads/2025/11/plate-of-cookie-with-strawberry-300x300-1.png ,/wp-content/uploads/2025/11/plate-of-cookie-with-strawberry-300x300-1.png 780w" sizes="auto, (max-width: 480px) 150px" src="/wp-content/uploads/2025/11/plate-of-cookie-with-strawberry-300x300-1.png" alt="Plate Of Cookie With Strawberry" class="uag-image-123" width="374" height="400" title="Home" loading="lazy" role="img"></figure></div>
-</div></div>
+<section id="kontakt" class="pl-flow pl-flow--soft" aria-labelledby="pl-contact-title">
+<div class="pl-ref-shell">
+<span class="pl-orbit pl-orbit--contact" aria-hidden="true"></span>
+<div class="pl-ref-eyebrow">Kontakt</div>
+<h2 id="pl-contact-title" class="pl-ref-title">Komm vorbei oder schreib uns direkt.</h2>
+<div class="pl-contact-grid">
+<div class="pl-contact-cards">
+<article class="pl-contact-card">
+<div class="pl-contact-icon">⌂</div>
+<div><strong>Adresse</strong><p>Jakobstraße 2-3<br>54290 Trier</p></div>
+</article>
+<article class="pl-contact-card">
+<div class="pl-contact-icon">☎</div>
+<div><strong>Telefon</strong><p><a href="tel:0049123456789">(0049) 123456789</a></p></div>
+</article>
+<article class="pl-contact-card">
+<div class="pl-contact-icon">⏰</div>
+<div><strong>Öffnungszeiten</strong><p>Sonntag bis Mittwoch 09:00 - 22:00<br>Donnerstag bis Samstag 09:00 - 23:00</p></div>
+</article>
+</div>
+<div class="pl-contact-map">
+<iframe title="Karte zu Papa Lu in Trier" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Jakobstra%C3%9Fe%202-3%2C%2054290%20Trier&amp;z=16&amp;output=embed"></iframe>
+<form class="pl-contact-form" action="/contact/" method="get" onsubmit="event.preventDefault(); window.location.href='/contact/';">
+<h3>Kontakt</h3>
+<div class="pl-contact-fields">
+<input type="text" name="name" placeholder="Name">
+<input type="email" name="email" placeholder="E-Mail Adresse">
+<textarea name="message" placeholder="Deine Nachricht"></textarea>
+</div>
+<div class="pl-ref-actions">
+<button class="pl-ref-button pl-ref-button--primary" type="submit">Zur Kontaktseite</button>
+</div>
+<p class="pl-contact-form-note">Die Formularfunktion bleibt über die bestehende Kontaktseite erreichbar. Dieser Block inszeniert den Kontaktbereich im neuen Home-Design und führt ohne Umweg zur Detailseite.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
 
 	
 	
@@ -4071,6 +5086,24 @@ window.addEventListener('load', function () {
 			if (event.key === 'Escape') {
 				closeHeaderPanel();
 			}
+		});
+	}
+
+	const galleryTrack = document.querySelector('[data-gallery-track]');
+	const galleryPrev = document.querySelector('[data-gallery-prev]');
+	const galleryNext = document.querySelector('[data-gallery-next]');
+
+	if (galleryTrack && galleryPrev && galleryNext) {
+		const galleryScrollAmount = function () {
+			return Math.max(galleryTrack.clientWidth * 0.72, 260);
+		};
+
+		galleryPrev.addEventListener('click', function () {
+			galleryTrack.scrollBy({ left: -galleryScrollAmount(), behavior: 'smooth' });
+		});
+
+		galleryNext.addEventListener('click', function () {
+			galleryTrack.scrollBy({ left: galleryScrollAmount(), behavior: 'smooth' });
 		});
 	}
 
