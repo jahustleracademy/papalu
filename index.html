@@ -2993,7 +2993,9 @@ body.home #scb-wrapper {
 	margin-top: -1px;
 	height: auto !important;
 	min-height: 0 !important;
-	overflow: clip;
+	overflow-y: visible;
+	overflow-x: clip;
+	z-index: 10;
 	background:
 		radial-gradient(circle at 14% 18%, rgba(116, 212, 184, 0.13), transparent 35%),
 		radial-gradient(circle at 84% 26%, rgba(255, 242, 221, 0.1), transparent 28%),
@@ -3024,7 +3026,8 @@ body.home #scb-wrapper {
 	align-items: center;
 	padding-block: clamp(1rem, 2.2vw, 2.8rem);
 	padding-inline: clamp(1.2rem, 3.2vw, 3.2rem);
-	overflow: clip;
+	overflow-y: visible;
+	overflow-x: clip;
 }
 
 .papalu-hero__bg,
@@ -3352,16 +3355,7 @@ body.home #scb-wrapper {
 }
 
 .papalu-hero__reveal {
-	z-index: 8;
-	display: none;
-	pointer-events: none;
-	inset: auto 0 0;
-	height: clamp(4.2rem, 7.6vw, 6.6rem);
-	background:
-		linear-gradient(180deg, rgba(17, 50, 45, 0), rgba(17, 50, 45, 0.36)),
-		url("/assets/generated/hero-divider.svg") center bottom / 100% 100% no-repeat;
-	opacity: calc(0.06 + (var(--hero-exit) * 0.94));
-	transform: translate3d(0, calc((1 - var(--hero-exit)) * 2.2rem), 0);
+	display: none !important;
 }
 
 .pl-intro-section::before {
