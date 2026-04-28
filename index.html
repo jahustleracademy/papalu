@@ -2991,11 +2991,9 @@ body.home #scb-wrapper {
 	position: relative;
 	isolation: isolate;
 	margin-top: -1px;
-	height: auto !important;
-	min-height: 0 !important;
-	overflow-y: visible;
+	overflow-y: visible !important;
 	overflow-x: clip;
-	z-index: 10;
+	z-index: 100;
 	background:
 		radial-gradient(circle at 14% 18%, rgba(116, 212, 184, 0.13), transparent 35%),
 		radial-gradient(circle at 84% 26%, rgba(255, 242, 221, 0.1), transparent 28%),
@@ -3026,8 +3024,7 @@ body.home #scb-wrapper {
 	align-items: center;
 	padding-block: clamp(1rem, 2.2vw, 2.8rem);
 	padding-inline: clamp(1.2rem, 3.2vw, 3.2rem);
-	overflow-y: visible;
-	overflow-x: clip;
+	overflow: visible !important;
 }
 
 .papalu-hero__bg,
