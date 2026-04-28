@@ -2976,6 +2976,11 @@ body.home #scb-wrapper {
 	}
 }
 
+/* Global overrides for hero overflow */
+.home .entry-content {
+	overflow: visible !important;
+}
+
 /* Hero: scroll-scrub scene */
 .papalu-hero {
 	--shell-offset: var(--pl-shell-offset, 7.5rem);
@@ -3004,6 +3009,7 @@ body.home #scb-wrapper {
 .papalu-hero__track {
 	position: relative;
 	height: 198svh;
+	overflow: visible !important;
 }
 
 .papalu-hero__sticky {
@@ -3011,6 +3017,7 @@ body.home #scb-wrapper {
 	top: var(--shell-offset) !important;
 	height: calc(100svh - var(--shell-offset)) !important;
 	min-height: 580px;
+	overflow: visible !important;
 }
 
 .papalu-hero__scene {
@@ -3032,6 +3039,7 @@ body.home #scb-wrapper {
 .papalu-hero__reveal {
 	position: absolute;
 	inset: 0;
+	overflow: visible !important;
 }
 
 .papalu-hero__bg {
@@ -4700,7 +4708,7 @@ class="post-366 page type-page status-publish ast-article-single" id="post-366" 
 </div>
 </section>
 
-<section id="aboutus" class="pl-flow pl-flow--light" aria-labelledby="pl-about-title">
+<section id="aboutus" class="pl-flow pl-flow--light" style="z-index: 1;" aria-labelledby="pl-about-title">
 <div class="pl-ref-shell pl-ref-grid">
 <span class="pl-orbit pl-orbit--about" aria-hidden="true"></span>
 <span class="pl-dot pl-dot--about" aria-hidden="true"></span>
