@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Papa Lu | Reservierungen Admin</title>
+<style>
+:root {
+	--pl-green: #173d37;
+	--pl-green-deep: #0f2824;
+	--pl-mint: #38b291;
+	--pl-cream: #f6f0e5;
+	--pl-card: rgba(255, 255, 255, 0.86);
+	--pl-border: rgba(23, 61, 55, 0.12);
+	--pl-copy: rgba(23, 61, 55, 0.76);
+	--pl-danger: #b4232f;
+	--pl-warn: #f59d17;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Inter, system-ui, sans-serif;
+	background:
+		radial-gradient(circle at top right, rgba(56, 178, 145, 0.16), transparent 24%),
+		linear-gradient(180deg, #f6f0e5 0%, #efe6d8 100%);
+	color: var(--pl-green);
+}
+
+a {
+	color: inherit;
+}
+
+.admin-shell {
+	width: min(1180px, calc(100% - 2rem));
+	margin: 0 auto;
+	padding: 2rem 0 4rem;
+}
+
+.admin-topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	padding: 1rem 1.2rem;
+	border: 1px solid rgba(255, 255, 255, 0.48);
+	border-radius: 999px;
+	background: rgba(15, 40, 36, 0.92);
+	color: #fff8ee;
+}
+
+.admin-topbar__brand {
+	font-size: 1.2rem;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.admin-topbar__back {
+	padding: 0.7rem 1rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.1);
+	text-decoration: none;
+}
+
+.admin-hero {
+	display: grid;
+	gap: 0.9rem;
+	margin-bottom: 1.6rem;
+}
+
+.admin-kicker {
+	width: fit-content;
+	padding: 0.4rem 0.8rem;
+	border-radius: 999px;
+	background: rgba(23, 61, 55, 0.08);
+	font-size: 0.82rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.admin-hero h1 {
+	margin: 0;
+	font-size: clamp(2.3rem, 6vw, 4.8rem);
+	line-height: 0.98;
+}
+
+.admin-hero p {
+	margin: 0;
+	max-width: 46rem;
+	color: var(--pl-copy);
+	font-size: 1.05rem;
+	line-height: 1.7;
+}
+
+.admin-stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0 2rem;
+}
+
+.admin-stat {
+	padding: 1.2rem;
+	border: 1px solid var(--pl-border);
+	border-radius: 1.4rem;
+	background: var(--pl-card);
+	box-shadow: 0 20px 38px rgba(13, 34, 30, 0.08);
+}
+
+.admin-stat strong {
+	display: block;
+	margin-bottom: 0.35rem;
+	font-size: 0.9rem;
+}
+
+.admin-stat span {
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+.admin-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.admin-toolbar__info {
+	color: var(--pl-copy);
+}
+
+.admin-button {
+	border: 0;
+	border-radius: 999px;
+	background: var(--pl-green);
+	color: #fff8ee;
+	padding: 0.8rem 1.1rem;
+	font: inherit;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.admin-button--ghost {
+	background: rgba(23, 61, 55, 0.08);
+	color: var(--pl-green);
+}
+
+.admin-button--danger {
+	background: rgba(180, 35, 47, 0.12);
+	color: var(--pl-danger);
+}
+
+.admin-empty,
+.admin-table-wrap {
+	border: 1px solid var(--pl-border);
+	border-radius: 1.6rem;
+	background: var(--pl-card);
+	box-shadow: 0 20px 38px rgba(13, 34, 30, 0.08);
+	overflow: hidden;
+}
+
+.admin-empty {
+	padding: 2rem;
+	color: var(--pl-copy);
+}
+
+.admin-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+	padding: 1rem;
+	text-align: left;
+	vertical-align: top;
+	border-bottom: 1px solid var(--pl-border);
+}
+
+.admin-table th {
+	font-size: 0.82rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(23, 61, 55, 0.64);
+	background: rgba(23, 61, 55, 0.04);
+}
+
+.admin-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.admin-cell-title {
+	font-weight: 800;
+}
+
+.admin-cell-copy {
+	margin-top: 0.3rem;
+	color: var(--pl-copy);
+	line-height: 1.55;
+}
+
+.admin-status {
+	width: 100%;
+	padding: 0.8rem 0.9rem;
+	border: 1px solid var(--pl-border);
+	border-radius: 0.9rem;
+	background: #fff;
+	font: inherit;
+	color: var(--pl-green);
+}
+
+.admin-row-actions {
+	display: grid;
+	gap: 0.7rem;
+}
+
+.admin-note {
+	color: var(--pl-copy);
+}
+
+@media (max-width: 980px) {
+	.admin-stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.admin-table-wrap {
+		overflow-x: auto;
+	}
+
+	.admin-table {
+		min-width: 920px;
+	}
+}
+
+@media (max-width: 640px) {
+	.admin-shell {
+		width: min(100% - 1rem, 1180px);
+	}
+
+	.admin-topbar,
+	.admin-toolbar {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.admin-stats {
+		grid-template-columns: 1fr;
+	}
+}
+</style>
+</head>
+<body>
+<div class="admin-shell">
+	<header class="admin-topbar">
+		<a class="admin-topbar__brand" href="/">Papa Lu Reservierungen</a>
+		<a class="admin-topbar__back" href="/">Zur Startseite</a>
+	</header>
+
+	<section class="admin-hero">
+		<div class="admin-kicker">Admin Ansicht</div>
+		<h1>Reservierungen im Blick.</h1>
+		<p>Diese Übersicht zeigt alle Reservierungsanfragen, die im aktuellen Browser gespeichert wurden. Du kannst Status anpassen oder einzelne Einträge löschen.</p>
+	</section>
+
+	<section class="admin-stats" aria-label="Reservierungsstatistiken">
+		<article class="admin-stat"><strong>Gesamt</strong><span data-stat-total>0</span></article>
+		<article class="admin-stat"><strong>Neu</strong><span data-stat-new>0</span></article>
+		<article class="admin-stat"><strong>Bestätigt</strong><span data-stat-confirmed>0</span></article>
+		<article class="admin-stat"><strong>Personen gesamt</strong><span data-stat-guests>0</span></article>
+	</section>
+
+	<div class="admin-toolbar">
+		<div class="admin-toolbar__info" data-admin-info>Noch keine Reservierungen gespeichert.</div>
+		<button class="admin-button admin-button--danger" type="button" data-clear-all>Alle löschen</button>
+	</div>
+
+	<div class="admin-empty" data-empty-state>Hier erscheinen neue Reservierungsanfragen, sobald sie über die Startseite abgesendet wurden.</div>
+
+	<div class="admin-table-wrap" data-table-wrap hidden>
+		<table class="admin-table">
+			<thead>
+				<tr>
+					<th>Gast</th>
+					<th>Reservierung</th>
+					<th>Sitzbereich</th>
+					<th>Notiz</th>
+					<th>Status</th>
+					<th>Aktionen</th>
+				</tr>
+			</thead>
+			<tbody data-reservations-body></tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+window.addEventListener('load', function () {
+	const reservationKey = 'papaluReservations';
+	const body = document.querySelector('[data-reservations-body]');
+	const emptyState = document.querySelector('[data-empty-state]');
+	const tableWrap = document.querySelector('[data-table-wrap]');
+	const info = document.querySelector('[data-admin-info]');
+	const clearAllButton = document.querySelector('[data-clear-all]');
+	const totalStat = document.querySelector('[data-stat-total]');
+	const newStat = document.querySelector('[data-stat-new]');
+	const confirmedStat = document.querySelector('[data-stat-confirmed]');
+	const guestsStat = document.querySelector('[data-stat-guests]');
+
+	const readReservations = function () {
+		try {
+			const raw = window.localStorage.getItem(reservationKey);
+			const parsed = raw ? JSON.parse(raw) : [];
+			return Array.isArray(parsed) ? parsed : [];
+		} catch (error) {
+			return [];
+		}
+	};
+
+	const writeReservations = function (entries) {
+		window.localStorage.setItem(reservationKey, JSON.stringify(entries));
+	};
+
+	const formatDate = function (value) {
+		if (!value) {
+			return 'Offen';
+		}
+		const date = new Date(value + 'T12:00:00');
+		if (Number.isNaN(date.getTime())) {
+			return value;
+		}
+		return new Intl.DateTimeFormat('de-DE', {
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric'
+		}).format(date);
+	};
+
+	const sortReservations = function (entries) {
+		return entries.slice().sort(function (a, b) {
+			const aKey = (a.date || '') + 'T' + (a.time || '');
+			const bKey = (b.date || '') + 'T' + (b.time || '');
+			return aKey.localeCompare(bKey);
+		});
+	};
+
+	const updateStats = function (entries) {
+		const total = entries.length;
+		const pending = entries.filter(function (entry) {
+			return entry.status === 'Neu';
+		}).length;
+		const confirmed = entries.filter(function (entry) {
+			return entry.status === 'Bestätigt';
+		}).length;
+		const guests = entries.reduce(function (sum, entry) {
+			const count = Number(entry.guests || 0);
+			return sum + (Number.isFinite(count) ? count : 0);
+		}, 0);
+
+		totalStat.textContent = String(total);
+		newStat.textContent = String(pending);
+		confirmedStat.textContent = String(confirmed);
+		guestsStat.textContent = String(guests);
+		info.textContent = total > 0
+			? total + ' Reservierung(en) im aktuellen Browser gespeichert.'
+			: 'Noch keine Reservierungen gespeichert.';
+	};
+
+	const render = function () {
+		const reservations = sortReservations(readReservations());
+		updateStats(reservations);
+
+		if (!reservations.length) {
+			body.innerHTML = '';
+			tableWrap.hidden = true;
+			emptyState.hidden = false;
+			return;
+		}
+
+		emptyState.hidden = true;
+		tableWrap.hidden = false;
+		body.innerHTML = reservations.map(function (entry) {
+			const notes = entry.notes ? entry.notes : '<span class="admin-note">Keine Notiz</span>';
+			return '' +
+				'<tr data-id="' + entry.id + '">' +
+					'<td>' +
+						'<div class="admin-cell-title">' + entry.name + '</div>' +
+						'<div class="admin-cell-copy"><a href="tel:' + entry.phone + '">' + entry.phone + '</a></div>' +
+					'</td>' +
+					'<td>' +
+						'<div class="admin-cell-title">' + formatDate(entry.date) + ' um ' + entry.time + '</div>' +
+						'<div class="admin-cell-copy">' + entry.guests + ' Person(en)</div>' +
+					'</td>' +
+					'<td><div class="admin-cell-copy">' + entry.area + '</div></td>' +
+					'<td><div class="admin-cell-copy">' + notes + '</div></td>' +
+					'<td>' +
+						'<select class="admin-status" data-status-select="' + entry.id + '">' +
+							'<option value="Neu"' + (entry.status === 'Neu' ? ' selected' : '') + '>Neu</option>' +
+							'<option value="Bestätigt"' + (entry.status === 'Bestätigt' ? ' selected' : '') + '>Bestätigt</option>' +
+							'<option value="Rückruf nötig"' + (entry.status === 'Rückruf nötig' ? ' selected' : '') + '>Rückruf nötig</option>' +
+							'<option value="Abgesagt"' + (entry.status === 'Abgesagt' ? ' selected' : '') + '>Abgesagt</option>' +
+						'</select>' +
+					'</td>' +
+					'<td>' +
+						'<div class="admin-row-actions">' +
+							'<button class="admin-button admin-button--ghost" type="button" data-call="' + entry.phone + '">Anrufen</button>' +
+							'<button class="admin-button admin-button--danger" type="button" data-delete="' + entry.id + '">Löschen</button>' +
+						'</div>' +
+					'</td>' +
+				'</tr>';
+		}).join('');
+	};
+
+	document.addEventListener('change', function (event) {
+		const select = event.target.closest('[data-status-select]');
+		if (!select) {
+			return;
+		}
+		const id = select.getAttribute('data-status-select');
+		const reservations = readReservations().map(function (entry) {
+			if (entry.id === id) {
+				return Object.assign({}, entry, { status: select.value });
+			}
+			return entry;
+		});
+		writeReservations(reservations);
+		render();
+	});
+
+	document.addEventListener('click', function (event) {
+		const deleteButton = event.target.closest('[data-delete]');
+		if (deleteButton) {
+			const id = deleteButton.getAttribute('data-delete');
+			const reservations = readReservations().filter(function (entry) {
+				return entry.id !== id;
+			});
+			writeReservations(reservations);
+			render();
+			return;
+		}
+
+		const callButton = event.target.closest('[data-call]');
+		if (callButton) {
+			window.location.href = 'tel:' + callButton.getAttribute('data-call');
+		}
+	});
+
+	clearAllButton.addEventListener('click', function () {
+		window.localStorage.removeItem(reservationKey);
+		render();
+	});
+
+	render();
+});
+</script>
+</body>
+</html>
